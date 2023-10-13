@@ -15,7 +15,7 @@ export default function LoginPage() {
     async function signIn() {
         const isLogged = await authService.login(login, password)
         if (isLogged) {
-            navigation.navigate('Home')
+            navigation.navigate('Main')
         } else {
             Alert.alert('Login ou senha inválido(a)!')
         }

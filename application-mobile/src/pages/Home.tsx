@@ -15,6 +15,7 @@ export default function HomePage() {
     navigation.setOptions({
         headerLeft: () => <Button title="Sair" onPress={() => navigation.goBack()} />,
         headerRight: () => <Button title="Add" onPress={() => navigation.navigate('User')} />
+
     })
 
     function fetchUsers() {

@@ -3,7 +3,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 
 export function setupDocumentation(app: INestApplication, serverPort: number): void {
 
-    const baseURL = `http://locahost:${serverPort}/`
+    const baseURL = `http://localhost:${serverPort}/`
 
     const options = new DocumentBuilder()
         .setTitle('Social Network API')

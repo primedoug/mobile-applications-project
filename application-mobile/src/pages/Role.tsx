@@ -3,37 +3,27 @@ import { Alert, Button, StyleSheet, View, Text } from 'react-native'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 
 import MyInput from '../components/MyInput'
-import { userService } from '../services/user.service'
+import { roleService } from '../services/role.service'
 
-export default function UserPage() {
+export default function RolePage() {
 
     const navigation = useNavigation<NavigationProp<any>>()
 
-    const [name, setName] = React.useState('')
-    const [login, setLogin] = React.useState('')
-    const [password, setPassword] = React.useState('')
-    const [passConfirm, setPassConfirm] = React.useState('')
+    const [ name, setName ] = React.useState('')
+    const [ description, setDescription ] = React.useState('')
 
     function save() {
         if (!name || name.trim() === '') {
             Alert.alert('Nome inválido')
             return;
         }
-        if (!login || login.trim() === '') {
-            Alert.alert('Login inválido')
-            return;
-        }
-        if (!password || password.trim() === '') {
-            Alert.alert('Senha inválida')
-            return;
-        }
-        if (password !== passConfirm) {
-            Alert.alert('Senha não confere')
+        if (!description || description.trim() === '') {
+            Alert.alert('Descrição inválida')
             return;
         }
 
-        userService.store({
-            name, username: login, password
+        roleService.store({
+            name, description
         }).then(saved => {
             if (saved) navigation.goBack()
         }).catch(error => {
@@ -47,12 +37,9 @@ export default function UserPage() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.menuText}>Cadastrar User</Text>
-
+            <Text style={styles.menuText}>Cadastrar Role</Text>
             <MyInput label='Nome:' onChangeText={setName} />
-            <MyInput label='Login:' keyboardType='email-address' onChangeText={setLogin} />
-            <MyInput label='Senha:' onChangeText={setPassword} secureTextEntry />
-            <MyInput label='Confirmar Senha:' onChangeText={setPassConfirm} secureTextEntry />
+            <MyInput label='Descrição:' onChangeText={setDescription} />
             
             <Button title='Salvar' onPress={save} />
         </View>
@@ -62,6 +49,7 @@ export default function UserPage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 20,
         alignItems: 'center',
         backgroundColor: '#fff',
         justifyContent: 'center',

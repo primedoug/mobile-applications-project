@@ -1,16 +1,16 @@
-import { User } from "../model/user"
+import { Role } from "../model/role"
 import { loggedRepository } from "../repositories/logged.repository"
 
-class UserService {
+class RoleService {
 
-    private readonly url = 'http://localhost:3030/users'
+    private readonly  url = 'http://localhost:3030/roles'
 
     private async getHeaders() {
         const logged = await loggedRepository.getLoggedUser()
-        return {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${logged.token}`
-        }
+            return {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${logged.token}`
+            }
     }
 
     public async get(): Promise<[]> {
@@ -26,11 +26,11 @@ class UserService {
         throw new Error(await response.json())
     }
 
-    public async store(user: User) {
+    public async store(role: Role) {
         const response = await fetch(this.url, {
             method: 'POST',
             headers: await this.getHeaders(),
-            body: JSON.stringify(user)
+            body: JSON.stringify(role)
         })
 
         if (response.status === 201) {
@@ -41,11 +41,11 @@ class UserService {
         throw new Error(error.message)
     }
 
-    public async update(user: User) {
-        const response = await fetch(`${this.url}/${user.id}`, {
+    public async update(role: Role) {
+        const response = await fetch(`${this.url}/${role.id}`, {
             method: 'PUT',
             headers: await this.getHeaders(),
-            body: JSON.stringify(user)
+            body: JSON.stringify(role)
         })
 
         if (response.status === 200) {
@@ -56,8 +56,8 @@ class UserService {
         throw new Error(error.message)
     }
 
-    public async remove(user: User) {
-        const response = await fetch(`${this.url}/${user.id}`, {
+    public async remove(role: Role) {
+        const response = await fetch(`${this.url}/${role.id}`, {
             method: 'DELETE',
             headers: await this.getHeaders()
         })
@@ -71,4 +71,4 @@ class UserService {
     }
 }
 
-export const userService = new UserService()
+export const roleService = new RoleService()
