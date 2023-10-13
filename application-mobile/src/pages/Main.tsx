@@ -9,8 +9,8 @@ export default function MainPage() {
     return (
         <View style={styles.container}>
             <Text style={styles.menuText}>Menu Principal</Text>
-            <View style={styles.buttonContainer}><Button title="User list" onPress={() => navigation.navigate('User')} /></View>
-            <View style={styles.buttonContainer}><Button title="Role list" onPress={() => navigation.navigate('Role')} /></View>
+            <View style={styles.buttonContainer}><Button title="User list" onPress={() => navigation.navigate('UserList')} /></View>
+            <View style={styles.buttonContainer}><Button title="Role list" onPress={() => navigation.navigate('RoleList')} /></View>
         </View>
     )
 }

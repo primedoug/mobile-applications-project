@@ -1,4 +1,4 @@
-import { Role } from "../model/role"
+import Role from "../model/role"
 import { loggedRepository } from "../repositories/logged.repository"
 
 class RoleService {
