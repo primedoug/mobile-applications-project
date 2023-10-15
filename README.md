@@ -12,3 +12,14 @@ https://github.com/uedsonreis/aula_mobile_rn_es25
 
 # Backend base:
 https://github.com/uedsonreis/authentication-nestjs
+
+# Features incluídas:
+- Nova tela principal de navegação de menus: (Roles e Users)
+- Nova tela de cadastro de novas Roles
+- Nova tela distagem de todas as Roles cadastradas
+- Edição de Users com opção de seleção das Roles existentes (mais de uma)
+
+# Componentes
+Douglas Nascimento Camargo
+Celina Kathllyn Santos Valmo
+Jose Nilson Gama Passos
