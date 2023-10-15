@@ -20,6 +20,6 @@ https://github.com/uedsonreis/authentication-nestjs
 - Edição de Users com opção de seleção das Roles existentes (mais de uma)
 
 # Componentes
-Douglas Nascimento Camargo
-Celina Kathllyn Santos Valmo
-Jose Nilson Gama Passos
+- Douglas Nascimento Camargo
+- Celina Kathllyn Santos Valmo
+- Jose Nilson Gama Passos
